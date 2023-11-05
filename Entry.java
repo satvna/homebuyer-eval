@@ -64,18 +64,52 @@ public class Entry {
     
     //--- METHODS ---
     public String entryToString(){
-        return "id : "+ id+ "\ngrossMonthlyIncome: " +grossMonthlyIncome + "\ncreditCardPayment: " 
-        + creditCardPayment + "\ncarPayment: " + carPayment + "\nstudentLoanPayments: " 
-        + studentLoanPayments + "\nappraised value: " + appraisedValue + "\ndown payment: " 
-        + downPayment + "\nloan amount: " + loanAmount + "\nmonthly mortgage payment:" 
-        + monthlyMortgagePayment + "\ncredit score: " + creditScore + "\napproved: " + approved 
-        + "\nrejectionReason: " + rejectionToString() + "\nwarnings: " + warningToString() + "\n\n";
+        return "id : "+ id+ "\nGross monthly income: " +grossMonthlyIncome + "\nCredit card payment: "
+        + creditCardPayment + "\nCar payment: " + carPayment + "\nStudent loan payments : "
+        + studentLoanPayments + "\nAppraised value: " + appraisedValue + "\nDown payment: "
+        + downPayment + "\nLoan amount: " + loanAmount + "\nMonthly mortgage payment:"
+        + monthlyMortgagePayment + "\nCredit score: " + creditScore + "\nApproved: " + approvalLetter()
+        + "\nRejection reasons: " + rejectionToString() + "\nwarnings: " + warningToString() + "\n\n";
     }
 
+    public String approvalLetter(){
+        if (approved==true){
+            return "T";
+        }
+        else {
+            return "F";
+        }
+    }
     public String rejectionToString(){
-        return rejectionReason[0] + ", " + rejectionReason[1] + ", " + rejectionReason[2];
+        String rejectionString = "";
+        if (rejectionReason[0] != ""){
+            rejectionString += rejectionReason[0];
+        }
+        if (rejectionReason[1] != ""){
+            rejectionString += rejectionReason[1];
+        }
+        if (rejectionReason[2] != ""){
+            rejectionString += rejectionReason[2];
+        }
+
+        if (rejectionString ==""){
+            return "N/A";
+        }
+        return rejectionString;
     }
     public String warningToString(){
-        return warnings[0] + ", " + warnings[1];
+        String warningsString = "";
+
+        if (warnings[1] != ""){
+            warningsString += warnings[1];
+        }
+        if (warnings[2] != ""){
+            warningsString += warnings[2];
+        }
+
+        if (warningsString ==""){
+            return "N/A";
+        }
+        return warningsString;
     }
 }
