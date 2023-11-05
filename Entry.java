@@ -12,7 +12,7 @@ public class Entry {
     double loanAmount;
     double monthlyMortgagePayment;
     double creditScore;
-    private boolean approved;
+    private boolean approved = true;
     private String[] rejectionReason = {"", "", ""};
     private String[] warnings = {"", "", ""};
 
